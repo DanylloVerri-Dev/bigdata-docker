@@ -1,15 +1,14 @@
-import logging
-from datetime import datetime
+
 from cassandra.auth import PlainTextAuthProvider
 from cassandra.cluster import Cluster
 from pyspark.sql import SparkSession
-from pyspark.sql.functions import from_json, col
+
 
 # Configurando a sessão spark
 spark = SparkSession.builder \
     .appName("Teste_APP") \
-    .master("spark://172.22.0.2:7077") \
-    .config("spark.cassandra.connection.host", "172.22.0.3") \
+    .master("spark://172.24.0.2:7077") \
+    .config("spark.cassandra.connection.host", "172.24.0.3") \
     .config("spark.jars.packages", "com.datastax.spark:spark-cassandra-connector_2.12:3.4.1") \
     .getOrCreate()
 
@@ -19,7 +18,7 @@ table_name = "tabela_test"
 
 
 # Crie o keyspace usando o driver Python do Cassandra
-cluster = Cluster(["172.22.0.3"], auth_provider=PlainTextAuthProvider(username='cassandra', password='cassandra'))
+cluster = Cluster(["172.24.0.3"], auth_provider=PlainTextAuthProvider(username='cassandra', password='cassandra'))
 session = cluster.connect()
 
 session.execute(f"CREATE KEYSPACE IF NOT EXISTS {keyspace_name} WITH REPLICATION = {{'class': 'SimpleStrategy', 'replication_factor': 1}};")
@@ -51,6 +50,13 @@ df.write \
     .mode("append") \
     .save()
 
+# Consulte os dados na tabela
+df2 = spark.read \
+    .format("org.apache.spark.sql.cassandra") \
+    .options(keyspace=keyspace_name, table=table_name) \
+    .load()
+
+df2.show()
 # Encerre a sessão Spark
 spark.stop()
 

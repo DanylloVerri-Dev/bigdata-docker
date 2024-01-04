@@ -6,6 +6,8 @@ services:
     ports:
       - "9090:8080"
       - "7077:7077"
+    volumes:
+      - /home/danyllo/repositories/bigdata-docker/data:/opt/bitnami/spark/data
     networks:
       - spark-cassandra-network
       
@@ -17,7 +19,7 @@ services:
     environment:
       SPARK_MODE: worker
       SPARK_WORKER_CORES: 2
-      SPARK_WORKER_MEMORY: 1g
+      SPARK_WORKER_MEMORY: 2g
       SPARK_MASTER_URL: spark://spark-master:7077
     networks:
       - spark-cassandra-network
@@ -29,8 +31,8 @@ services:
     ports:
       - "9042:9042"
     environment:
-      - MAX_HEAP_SIZE=512M
-      - HEAP_NEWSIZE=100M
+      - MAX_HEAP_SIZE=1024M
+      - HEAP_NEWSIZE=200M
       - CASSANDRA_USERNAME=cassandra
       - CASSANDRA_PASSWORD=cassandra
     networks:
@@ -39,3 +41,6 @@ services:
 networks:
   spark-cassandra-network:
     driver: bridge
+
+volumes:
+  spark-master-data:
