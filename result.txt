@@ -1,0 +1,62 @@
+Total de falhas por equipamentos:
++--------+---------------------+                                                
+|    name|count(classification)|
++--------+---------------------+
+|2C195700|               343800|
+|9AD15F7E|               343526|
+|98B84035|               342870|
+|78FFAD0C|               341033|
+|4E834E81|               340549|
+|43B81579|               340187|
+|E1AD07D4|               340169|
+|ADE40E7F|               339698|
+|3329175B|               339561|
+|86083278|               338766|
+|5310B9D7|               337033|
+|CF304D24|               334843|
+|09C37FB8|               334615|
+|E54B5C3A|               332824|
++--------+---------------------+
+
+Equipamento que mais apresentou falhas: 2C195700 
+
+Média de falhas por grupo de equipamento, ordenado por numero de falhas: 
+
++----------+-----------------+                                                  
+|group_name|  equip_fails_avg|
++----------+-----------------+
+|  FGHQWR2Q|        336217.25|
+|  PA92NCXZ|         339070.5|
+|  9N127Z5P|         340365.5|
+|  Z9K1SAP4|         340549.0|
+|  NQWPA8D3|         340818.0|
+|  VAPQY59S|341182.6666666667|
++----------+-----------------+
+
+Ranking de sensores com maior numero de falhas, por nome de equipamento em um grupo:
+
++----------+--------------+---------+-----------+                               
+|group_name|equipment_name|sensor_id|error_count|
++----------+--------------+---------+-----------+
+|  9N127Z5P|      78FFAD0C|      582|        570|
+|  9N127Z5P|      78FFAD0C|     6261|        561|
+|  9N127Z5P|      78FFAD0C|     1361|        560|
+|  9N127Z5P|      78FFAD0C|     2871|        557|
+|  9N127Z5P|      78FFAD0C|     6344|        552|
+|  9N127Z5P|      78FFAD0C|     6293|        552|
+|  9N127Z5P|      78FFAD0C|     9917|        552|
+|  9N127Z5P|      78FFAD0C|     2635|        551|
+|  9N127Z5P|      78FFAD0C|     6231|        551|
+|  9N127Z5P|      78FFAD0C|     9576|        551|
+|  9N127Z5P|      78FFAD0C|     6848|        549|
+|  9N127Z5P|      78FFAD0C|     7983|        549|
+|  9N127Z5P|      78FFAD0C|     3824|        548|
+|  9N127Z5P|      78FFAD0C|      465|        548|
+|  9N127Z5P|      78FFAD0C|     2157|        546|
+|  9N127Z5P|      78FFAD0C|     7776|        546|
+|  9N127Z5P|      78FFAD0C|     5539|        545|
+|  9N127Z5P|      78FFAD0C|     2594|        545|
+|  9N127Z5P|      78FFAD0C|     7688|        545|
+|  9N127Z5P|      78FFAD0C|     4502|        545|
++----------+--------------+---------+-----------+
+only showing top 20 rows
